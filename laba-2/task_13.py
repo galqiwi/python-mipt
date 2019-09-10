@@ -4,6 +4,25 @@ from time import sleep
 
 turtle.shape('turtle')
 
+FACE_CENTER = (50, 0)
+FACE_RADIUS = 150
+FACE_WIDTH = 1
+FACE_COLOR = 'yellow'
+
+RIGHT_EYE_CENTER = (50, 60) # left eye is symmetrical
+RIGHT_EYE_RADIUS = 30
+RIGHT_EYE_WIDTH = 1
+RIGHT_EYE_COLOR = 'blue'
+
+NOSE_HEIGHTS = [10, 30]
+NOSE_WIDTH = 20
+NOSE_COLOR = 'black'
+
+SMILE_HEIGHT = -30
+SMILE_RADIUS = 100
+SMILE_WIDTH = 30
+SMILE_COLOR = 'red'
+
 def circle(R = 50, N = 50, left = True, half = False, color_fill = 'white', color_board = 'black', to_fill = False, width = 1):
 	turtle.width(width)
 	if to_fill:
@@ -38,15 +57,15 @@ def line(x0, y0, x1, y1, color = 'black', width = 1):
 	turtle.color(color)
 	turtle.goto(x1, y1)
 
-circle_abs(0, 0, 150, color_fill = 'yellow', to_fill = True)
-circle_abs(50, 60, 30, color_fill = 'blue', to_fill = True)
-circle_abs(-50, 60, 30, color_fill = 'blue', to_fill = True)
+circle_abs(FACE_CENTER[0], FACE_CENTER[1], FACE_RADIUS, color_fill = FACE_COLOR, to_fill = True, width = FACE_WIDTH)
+circle_abs(FACE_CENTER[0] + RIGHT_EYE_CENTER[0], RIGHT_EYE_CENTER[1], RIGHT_EYE_RADIUS, color_fill = RIGHT_EYE_COLOR, to_fill = True, width = RIGHT_EYE_WIDTH)
+circle_abs(FACE_CENTER[0] - RIGHT_EYE_CENTER[0], RIGHT_EYE_CENTER[1], RIGHT_EYE_RADIUS, color_fill = RIGHT_EYE_COLOR, to_fill = True, width = RIGHT_EYE_WIDTH)
 
-line(0, 30, 0, 10, width = 10)
+line(FACE_CENTER[0], NOSE_HEIGHTS[0], FACE_CENTER[0], NOSE_HEIGHTS[1], width = NOSE_WIDTH, color = NOSE_COLOR)
 
 turtle.penup()
-turtle.goto(40, -10)
+turtle.goto(FACE_CENTER[0] + SMILE_RADIUS, SMILE_HEIGHT)
 turtle.right(90)
-circle(R = 40, left = False, half = True, color_board='red', width = 20)
+circle(R = SMILE_RADIUS, left = False, half = True, color_board=SMILE_COLOR, width = SMILE_WIDTH)
 
 sleep(1000)

@@ -4,6 +4,10 @@ import math
 turtle.shape('turtle')
 turtle.left(90)
 
+BIG_RADIUS = 50
+SMALL_RADIUS = 10
+N = 2
+
 def circle(R = 50, N = 50, left = True, half = False, color_fill = 'white', color_board = 'black', to_fill = False, width = 1):
 	turtle.width(width)
 	if to_fill:
@@ -22,6 +26,6 @@ def circle(R = 50, N = 50, left = True, half = False, color_fill = 'white', colo
 		turtle.color(color_fill)
 		turtle.end_fill()
 
-for i in range(0, 50):
-	circle(R = 50, left = False, half = True)
-	circle(R = 10, left = False, half = True)
+for i in range(0, N):
+	circle(R = BIG_RADIUS, left = False, half = True)
+	circle(R = SMALL_RADIUS, left = False, half = True)
