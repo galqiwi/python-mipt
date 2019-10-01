@@ -6,11 +6,11 @@ from pyrob.api import *
 @task
 def task_8_27():
     while not cell_is_filled():
-    	move_up()
+        move_up()
 
     move_left()
     if cell_is_filled():
-    	return
+        return
     move_right(2)
 
 

@@ -7,9 +7,9 @@ from pyrob.api import *
 def task_7_6():
     i = 0
     while i < 5:
-    	move_right()
-    	if cell_is_filled():
-    		i += 1
+        move_right()
+        if cell_is_filled():
+            i += 1
 
 
 if __name__ == '__main__':

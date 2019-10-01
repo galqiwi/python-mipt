@@ -23,9 +23,5 @@ def task_8_30():
             return
 
 
-
-
-
-
 if __name__ == '__main__':
     run_tasks()

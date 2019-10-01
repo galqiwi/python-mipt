@@ -7,25 +7,24 @@ from pyrob.api import *
 def task_9_3():
     w = 1
     while not wall_is_on_the_right():
-    	w += 1
-    	move_right()
+        w += 1
+        move_right()
     for i in range(0, w - 1):
-    	move_left()
+        move_left()
 
     for y in range(0, w):
-    	if y != 0 and y != w - 1:
-    		fill_cell()
+        if y != 0 and y != w - 1:
+            fill_cell()
 
-    	for x_ in range(0, w - 1):
-    		move_right()
-    		x = x_ + 1
-    		if x != y and x + y != w - 1:
-    			fill_cell()
-    	for x_ in range(0, w - 1):
-    		move_left()
-    	if y != w - 1:
-    		move_down()
-
+        for x_ in range(0, w - 1):
+            move_right()
+            x = x_ + 1
+            if x != y and x + y != w - 1:
+                fill_cell()
+        for x_ in range(0, w - 1):
+            move_left()
+        if y != w - 1:
+            move_down()
 
 
 if __name__ == '__main__':

@@ -35,8 +35,6 @@ def task_8_18():
             count += fill_smart()
 
     mov('ax', count)
-    #print(count)
-
 
 
 if __name__ == '__main__':
