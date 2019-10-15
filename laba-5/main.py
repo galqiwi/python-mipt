@@ -19,7 +19,7 @@ def randomColor():
 balls = []
 
 def random_v(wall_id = -1):
-    av = 10
+    av = 20
     angle = 2 * math.pi * random.random()
     vx = av * math.cos(angle)
     vy = av * math.sin(angle)
@@ -43,7 +43,7 @@ def new_ball(type_ = 'old'):
     x = rnd(100, 700)
     y = rnd(100, 500)
     r = rnd(30, 50)
-    balls.append({'x': [x, y], 'v': random_v(), 'r': r, 'color': randomColor(), 'color2': randomColor(), 'type': type_})
+    balls.append({'x': [x, y], 'v': random_v(), 'r': r, 'color': randomColor(), 'color2': randomColor(), 'type': type_, 'col_flag': False})
 
 class Vector2:
     def __init__(self, x, y):
@@ -74,15 +74,29 @@ def update():
         y = ball['x'][1]
         r = ball['r']
 
-        if x < r:
-            ball['v'] = random_v(3)
-        if x > 800 - r:
-            ball['v'] = random_v(1)
-        if y < r:
-            ball['v'] = random_v(0)
-        if y > 600 - r:
-            ball['v'] = random_v(2)
-
+        if not ball['col_flag']:
+            if x < r:
+                ball['v'][0] *= -1
+                ball['col_flag'] = True
+            if x > 800 - r:
+                ball['v'][0] *= -1
+                ball['col_flag'] = True
+            if y < r:
+                ball['v'][1] *= -1
+                ball['col_flag'] = True
+            if y > 600 - r:
+                ball['v'][1] *= -1
+                ball['col_flag'] = True
+        else:
+            ball['col_flag'] = False
+            if x < r:
+                ball['col_flag'] = True
+            if x > 800 - r:
+                ball['col_flag'] = True
+            if y < r:
+                ball['col_flag'] = True
+            if y > 600 - r:
+                ball['col_flag'] = True
         if ball['type'] == 'old':
             canv.create_oval(x-r,y-r,x+r,y+r,fill = ball['color'], width=0)
         else:
