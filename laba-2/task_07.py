@@ -8,5 +8,5 @@ SPEED = 0.1
 ANGLE = 10
 
 for i in range(0, N):
-	turtle.forward(SPEED * i)
-	turtle.right(ANGLE)
+    turtle.forward(SPEED * i)
+    turtle.right(ANGLE)
