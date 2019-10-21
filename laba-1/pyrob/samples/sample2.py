@@ -12,4 +12,5 @@ def example2():
     while not wall_is_beneath():
         move_down()
 
+
 run_tasks(verbose=True)

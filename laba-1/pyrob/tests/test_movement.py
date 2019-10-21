@@ -53,12 +53,13 @@ class MovementTest(unittest.TestCase):
         rob.goto(0, 0)
         rob.move_down(9)
 
-        self.assertEqual(rob.get_pos(), (9 , 0))
+        self.assertEqual(rob.get_pos(), (9, 0))
 
     def testWallCrash(self):
         rob.goto(0, 0)
 
-        for move, test in [('move_right', 'move_up'), ('move_down', 'move_right'), ('move_left', 'move_down'), ('move_up', 'move_left')]:
+        for move, test in [('move_right', 'move_up'), ('move_down', 'move_right'),
+                           ('move_left', 'move_down'), ('move_up', 'move_left')]:
             for i in range(10):
                 with self.assertRaises(RobotCrashed):
                     getattr(rob, test)()

@@ -55,10 +55,14 @@ def task(*args, **kwargs):
                     passed = passed and _task.check_solution()
 
                 if passed:
-                    logger.debug('Test #{} passed for task {}'.format(i + 1, task_id))
+                    logger.debug(
+                        'Test #{} passed for task {}'.format(
+                            i + 1, task_id))
                     viz.on_task_completed(True)
                 else:
-                    logger.error('Test #{} failed for task {}'.format(i+1, task_id))
+                    logger.error(
+                        'Test #{} failed for task {}'.format(
+                            i + 1, task_id))
                     if crashed:
                         viz.on_robot_crashed()
                     elif error:
@@ -86,7 +90,8 @@ def run_tasks(verbose=False, headless=False):
     logging.basicConfig(level=(logging.DEBUG if verbose else logging.INFO))
 
     global viz
-    viz = importlib.import_module('pyrob.dummy_viz' if headless else 'pyrob.viz')
+    viz = importlib.import_module(
+        'pyrob.dummy_viz' if headless else 'pyrob.viz')
 
     viz.init()
 
@@ -96,7 +101,10 @@ def run_tasks(verbose=False, headless=False):
         status = t()
         if status:
             passed += 1
-        logger.info('Task {} finished: {}'.format(t.__name__, ('+' if status else '-')))
+        logger.info(
+            'Task {} finished: {}'.format(
+                t.__name__,
+                ('+' if status else '-')))
 
     logger.info('Total: {}/{}'.format(passed, len(tasks_to_run)))
 

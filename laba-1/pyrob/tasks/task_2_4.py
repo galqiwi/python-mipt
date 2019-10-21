@@ -14,8 +14,8 @@ class Task:
 
         for i in range(5):
             for j in range(10):
-                _j = 4*j
-                _i = 4*i
+                _j = 4 * j
+                _i = 4 * i
                 rob.set_cell_type(_i + 1, _j + 1, rob.CELL_TO_BE_FILLED)
                 rob.set_cell_type(_i + 1, _j + 2, rob.CELL_TO_BE_FILLED)
                 rob.set_cell_type(_i + 1, _j + 0, rob.CELL_TO_BE_FILLED)

@@ -3,9 +3,9 @@
 from pyrob.api import *
 
 dirs = [
-        [wall_is_above, move_up], [wall_is_on_the_right, move_right],
-        [wall_is_beneath, move_down], [wall_is_on_the_left, move_left]
-        ]
+    [wall_is_above, move_up], [wall_is_on_the_right, move_right],
+    [wall_is_beneath, move_down], [wall_is_on_the_left, move_left]
+]
 
 
 @task(delay=0.01)

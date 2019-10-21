@@ -32,7 +32,12 @@ for task_id in tasks:
     w = pyrob.viz.canvas.winfo_width()
     h = pyrob.viz.canvas.winfo_height()
 
-    ImageGrab.grab(bbox=(x, y, x + w, y + h)).save('/tmp/{}.png'.format(task_id))
-
-
-
+    ImageGrab.grab(
+        bbox=(
+            x,
+            y,
+            x +
+            w,
+            y +
+            h)).save(
+        '/tmp/{}.png'.format(task_id))

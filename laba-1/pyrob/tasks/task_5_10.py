@@ -9,7 +9,7 @@ class Task:
     CHECKS = 5
 
     def load_level(self, n):
-        if n != self.CHECKS-1:
+        if n != self.CHECKS - 1:
             m = random.randint(5, 10)
             n = random.randint(5, 10)
         else:
@@ -24,10 +24,11 @@ class Task:
 
         self.cells_to_fill = find_cells_to_be_filled()
 
-        rob.set_parking_cell(m-1, 0)
+        rob.set_parking_cell(m - 1, 0)
 
         rob.goto(0, 0)
 
     def check_solution(self):
 
-        return check_filled_cells(self.cells_to_fill) and rob.is_parking_point()
+        return check_filled_cells(
+            self.cells_to_fill) and rob.is_parking_point()

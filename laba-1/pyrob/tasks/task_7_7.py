@@ -4,6 +4,7 @@ import pyrob.core as rob
 from pyrob.tasks import check_filled_cells
 import random
 
+
 class Task:
     CHECKS = 5
 
@@ -15,7 +16,7 @@ class Task:
 
         cells = list(range(1, m))
         random.shuffle(cells)
-        cells = sorted(cells[:random.randint(7, m-5)])
+        cells = sorted(cells[:random.randint(7, m - 5)])
 
         for i in cells:
             rob.set_cell_type(1, i, rob.CELL_FILLED)

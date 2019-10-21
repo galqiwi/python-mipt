@@ -12,25 +12,24 @@ class Task:
         m = random.randint(15, 20)
         n = random.randint(15, 20)
 
-        rob.set_field_size(m ,n)
+        rob.set_field_size(m, n)
 
-        for i in range(m-1):
+        for i in range(m - 1):
             if random.randint(0, 1) == 0:
                 continue
 
             rob.goto(i, 0)
 
-            k = random.randint(1, n-2)
+            k = random.randint(1, n - 2)
             for j in range(n):
                 if j != k:
                     rob.put_wall(bottom=True)
-                if j != n-1:
+                if j != n - 1:
                     rob.move_right()
 
-        rob.set_parking_cell(m-1, 0)
+        rob.set_parking_cell(m - 1, 0)
 
-        rob.goto(0, n-1)
-
+        rob.goto(0, n - 1)
 
     def check_solution(self):
 

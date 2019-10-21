@@ -43,31 +43,31 @@ def set_field_size(m, n):
 
     global max_i, max_j, field
 
-    max_i = m-1
-    max_j = n-1
+    max_i = m - 1
+    max_j = n - 1
 
     field = [[FieldCell(i, j) for j in range(n)] for i in range(m)]
 
     goto(0, 0)
-    for i in range(n-1):
+    for i in range(n - 1):
         put_wall(top=True)
         move_right()
 
     put_wall(top=True)
 
-    for i in range(m-1):
+    for i in range(m - 1):
         put_wall(right=True)
         move_down()
 
     put_wall(right=True)
 
-    for i in range(n-1):
+    for i in range(n - 1):
         put_wall(bottom=True)
         move_left()
 
     put_wall(bottom=True)
 
-    for i in range(m-1):
+    for i in range(m - 1):
         put_wall(left=True)
         move_up()
 
@@ -81,7 +81,7 @@ def get_field_size():
     assert max_i >= 0
     assert max_j >= 0
 
-    return max_i+1, max_j+1
+    return max_i + 1, max_j + 1
 
 
 @log_invocation
@@ -97,22 +97,22 @@ def put_wall(left=False, right=False, top=False, bottom=False):
 
     if left:
         flag, nflag = WALL_LEFT, WALL_RIGHT
-        nj, ni = cur_j-1, cur_i
+        nj, ni = cur_j - 1, cur_i
         walls.append((flag, nflag, ni, nj))
 
     if right:
         flag, nflag = WALL_RIGHT, WALL_LEFT
-        nj, ni = cur_j+1, cur_i
+        nj, ni = cur_j + 1, cur_i
         walls.append((flag, nflag, ni, nj))
 
     if top:
         flag, nflag = WALL_TOP, WALL_BOTTOM
-        nj, ni = cur_j, cur_i-1
+        nj, ni = cur_j, cur_i - 1
         walls.append((flag, nflag, ni, nj))
 
     if bottom:
         flag, nflag = WALL_BOTTOM, WALL_TOP
-        nj, ni = cur_j, cur_i+1
+        nj, ni = cur_j, cur_i + 1
         walls.append((flag, nflag, ni, nj))
 
     for flag, nflag, ni, nj in walls:
@@ -133,7 +133,9 @@ def is_blocked(i=None, j=None, flag=None):
 
     _i = cur_i if i is None else i
     _j = cur_j if j is None else j
-    logger.debug('Field value at ({}, {}) is {}'.format(_i, _j, field[_i][_j].walls_flag))
+    logger.debug(
+        'Field value at ({}, {}) is {}'.format(
+            _i, _j, field[_i][_j].walls_flag))
     return (field[_i][_j].walls_flag & flag) > 0
 
 
@@ -159,6 +161,7 @@ def wall_is_on_the_left():
 @public
 def wall_is_on_the_right():
     return is_blocked(None, None, WALL_RIGHT)
+
 
 @log_invocation
 @internal

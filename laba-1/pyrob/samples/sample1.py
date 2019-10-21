@@ -10,4 +10,5 @@ def example1():
         move_right()
         move_down()
 
+
 run_tasks(verbose=True)

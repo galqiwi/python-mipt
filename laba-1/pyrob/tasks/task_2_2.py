@@ -13,11 +13,11 @@ class Task:
         rob.set_parking_cell(1, 16)
 
         for i in range(5):
-            rob.set_cell_type(2, 1 + 4*i, rob.CELL_TO_BE_FILLED)
-            rob.set_cell_type(2, 2 + 4*i, rob.CELL_TO_BE_FILLED)
-            rob.set_cell_type(2, 0 + 4*i, rob.CELL_TO_BE_FILLED)
-            rob.set_cell_type(3, 1 + 4*i, rob.CELL_TO_BE_FILLED)
-            rob.set_cell_type(1, 1 + 4*i, rob.CELL_TO_BE_FILLED)
+            rob.set_cell_type(2, 1 + 4 * i, rob.CELL_TO_BE_FILLED)
+            rob.set_cell_type(2, 2 + 4 * i, rob.CELL_TO_BE_FILLED)
+            rob.set_cell_type(2, 0 + 4 * i, rob.CELL_TO_BE_FILLED)
+            rob.set_cell_type(3, 1 + 4 * i, rob.CELL_TO_BE_FILLED)
+            rob.set_cell_type(1, 1 + 4 * i, rob.CELL_TO_BE_FILLED)
 
         self.cells_to_be_filled = find_cells_to_be_filled()
 

@@ -10,7 +10,7 @@ class Task:
 
     def load_level(self, n):
         l = random.randint(20, 30)
-        rob.set_field_size(13, l+1)
+        rob.set_field_size(13, l + 1)
 
         corridors = [random.randint(0, 1) for i in range(l)]
 
@@ -19,13 +19,13 @@ class Task:
         rob.goto(10, 0)
         rob.put_wall(top=True, bottom=True)
         rob.set_cell_type(10, 0, rob.CELL_TO_BE_FILLED)
-        for j in range(l-1):
+        for j in range(l - 1):
             rob.move_right()
             rob.put_wall(bottom=True)
 
-            if not corridors[j+1]:
+            if not corridors[j + 1]:
                 rob.put_wall(top=True)
-                rob.set_cell_type(10, j+1, rob.CELL_TO_BE_FILLED)
+                rob.set_cell_type(10, j + 1, rob.CELL_TO_BE_FILLED)
                 continue
 
             k = random.randint(1, 8)
@@ -52,4 +52,5 @@ class Task:
 
     def check_solution(self):
 
-        return check_filled_cells(self.cells_to_fill) and rob.is_parking_point() and rob.get_register_value('ax') == self.filled_cells_number
+        return check_filled_cells(self.cells_to_fill) and rob.is_parking_point(
+        ) and rob.get_register_value('ax') == self.filled_cells_number

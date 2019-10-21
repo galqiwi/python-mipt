@@ -30,7 +30,6 @@ class Task:
 
         rob.goto(i, 5)
 
-
     def check_solution(self):
 
         return rob.is_parking_point()

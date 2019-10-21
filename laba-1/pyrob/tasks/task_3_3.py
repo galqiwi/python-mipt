@@ -23,7 +23,6 @@ class Task:
 
         rob.set_parking_cell(2 + di, 2 + dj)
 
-
     def check_solution(self):
 
         return rob.is_parking_point()

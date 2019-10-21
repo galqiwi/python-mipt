@@ -15,4 +15,4 @@ class Task:
         rob.goto(0, 0)
 
     def check_solution(self):
-        return rob.get_pos() == (self.m-1, self.n-1)
+        return rob.get_pos() == (self.m - 1, self.n - 1)

@@ -106,4 +106,3 @@ class BasicTest(unittest.TestCase):
         self.assertTrue(rob.is_blocked(3, 3, rob.WALL_BOTTOM))
         self.assertFalse(rob.is_blocked(3, 3, rob.WALL_LEFT))
         self.assertFalse(rob.is_blocked(3, 3, rob.WALL_TOP))
-

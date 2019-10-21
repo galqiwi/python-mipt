@@ -12,7 +12,9 @@ def log_invocation(f):
     @functools.wraps(f)
     def wrapper(*args, **kwargs):
         logger = sys.modules[f.__module__].logger
-        logger.debug('Calling function {} with arguments: args={}, kwargs={}'.format(f.__name__, args, kwargs))
+        logger.debug(
+            'Calling function {} with arguments: args={}, kwargs={}'.format(
+                f.__name__, args, kwargs))
         ret = f(*args, **kwargs)
         logger.debug('Return value of {} is {}'.format(f.__name__, ret))
         return ret
@@ -52,12 +54,15 @@ def allow_internal(flag, ctx=True):
     else:
         AllowInternalContext.allow_internal(flag)
 
+
 def internal(f):
 
     @functools.wraps(f)
     def wrapper(*args, **kwargs):
         if not AllowInternalContext.internal_allowed():
-            raise NotImplementedError("API {} is marked as internal".format(f.__name__))
+            raise NotImplementedError(
+                "API {} is marked as internal".format(
+                    f.__name__))
         return f(*args, **kwargs)
 
     return wrapper

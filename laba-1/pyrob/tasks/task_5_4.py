@@ -18,10 +18,9 @@ class Task:
             rob.put_wall(bottom=True)
             rob.move_right()
 
-        rob.set_parking_cell(i+1, 0)
+        rob.set_parking_cell(i + 1, 0)
 
         rob.goto(0, 0)
-
 
     def check_solution(self):
 

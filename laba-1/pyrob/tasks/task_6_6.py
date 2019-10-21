@@ -43,7 +43,7 @@ class Task:
 
         rob.goto(10, 1)
 
-
     def check_solution(self):
 
-        return check_filled_cells(self.cells_to_fill) and rob.is_parking_point()
+        return check_filled_cells(
+            self.cells_to_fill) and rob.is_parking_point()

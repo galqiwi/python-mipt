@@ -29,7 +29,6 @@ class Task:
 
         rob.goto(i, q)
 
-
     def check_solution(self):
 
         return rob.is_parking_point()
